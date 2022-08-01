@@ -7,7 +7,7 @@ class Header extends React.Component {
     super();
     this.state = {
       User: [],
-      l: true,
+      loading: true,
     };
     this.loginuserdata = this.loginuserdata.bind(this);
   }
@@ -22,16 +22,22 @@ class Header extends React.Component {
       User: [data],
     });
     this.setState({
-      l: false,
+      loading: false,
     });
   }
 
   render() {
-    const { User, l } = this.state;
+    const { User, loading } = this.state;
     return (
       <header data-testid="header-component">
         {
-          l ? <p>Carregando...</p> : <p data-testid="header-user-name">{User[0].name}</p>
+          loading ? <p>Carregando...</p> : (
+            <p data-testid="header-user-name">
+              {`Olá
+              ${User[0].name}
+            `}
+            </p>
+          )
         }
         <Link to="/search" data-testid="link-to-search"> Pesquisar </Link>
         <Link to="/favorites" data-testid="link-to-favorites">
