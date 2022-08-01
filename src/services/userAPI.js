@@ -10,7 +10,7 @@ const saveUser = (user) => localStorage.setItem(USER_KEY, JSON.stringify(user));
 // Esse tipo de função que "chama outra função" é chamada de
 // "currying function" https://javascript.info/currying-partials
 // não se preocupe, estudaremos isso mais futuramente
-// --------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
 const simulateRequest = (response) => (callback) => {
   setTimeout(() => {
