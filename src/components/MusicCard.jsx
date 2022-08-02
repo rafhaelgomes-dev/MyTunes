@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -40,15 +40,22 @@ class MusicCard extends React.Component {
     const id = trackId;
     const { novoArraydeMusicas, checked } = this.state;
     const filtraMusica = novoArraydeMusicas.filter((element) => element.trackId === id);
+    const index = event.target.id;
+    const checkeds = checked;
     this.setState({
       loading: true,
     });
-    const obj = {
-      music: filtraMusica[0].trackId,
-    };
-    await addSong(obj);
-    const index = event.target.id;
-    const checkeds = checked;
+    if (checked[index] === true) {
+      await removeSong(filtraMusica[0]);
+      const checkeds2 = checked;
+      checkeds2[index] = false;
+      return this.setState({
+        loading: false,
+        checked: checkeds2,
+      });
+    }
+
+    await addSong(filtraMusica[0]);
     checkeds[index] = true;
     this.setState({
       loading: false,
@@ -73,7 +80,7 @@ class MusicCard extends React.Component {
     const checkeds = checked;
     musicasFavoritas.forEach((element1) => {
       novoArraydeMusicas.forEach((element2, index) => {
-        if (element1.music === element2.trackId) {
+        if (element1.trackId === element2.trackId) {
           checkeds[index] = true;
         }
       });
