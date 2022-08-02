@@ -16,10 +16,6 @@ class Favorites extends React.Component {
     this.recoverFavoriteSongs();
   }
 
-  componentDidUpdate() {
-    this.recoverFavoriteSongs();
-  }
-
   componentWillUnmount() {
     this.recoverFavoriteSongs();
   }
@@ -27,7 +23,7 @@ class Favorites extends React.Component {
   async recoverFavoriteSongs() {
     const favoriteSongs = await getFavoriteSongs();
     this.setState({
-      favoriteSongsMusic: [...favoriteSongs],
+      favoriteSongsMusic: [favoriteSongs],
       loading: false,
     });
   }
@@ -40,7 +36,7 @@ class Favorites extends React.Component {
         <Header />
         {loading ? <p>Carregando...</p> : (
           <MusicCard
-            listaDeMusicas={ favoriteSongsMusic }
+            listaDeMusicas={ favoriteSongsMusic[0] }
           />)}
       </div>
     );
