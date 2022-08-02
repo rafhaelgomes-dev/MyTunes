@@ -19,10 +19,14 @@ class Album extends React.Component {
     const { match } = this.props;
     const { params } = match;
     const musica = await getMusics(params.id);
+    const NovoArray = [];
+    for (let i = 1; i < musica.length; i += 1) {
+      NovoArray.push(musica[i]);
+    }
     this.setState({
       artistName: musica[0].artistName,
       albumName: musica[0].collectionName,
-      listaDeMusicas: [...musica],
+      listaDeMusicas: [...NovoArray],
       requisicaoFinalizada: true,
     });
   }

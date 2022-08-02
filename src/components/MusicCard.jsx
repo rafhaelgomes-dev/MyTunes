@@ -23,7 +23,7 @@ class MusicCard extends React.Component {
   async listaMusicasNaTela() {
     const { listaDeMusicas } = this.props;
     const NovoArray = [];
-    for (let i = 1; i < listaDeMusicas.length; i += 1) {
+    for (let i = 0; i < listaDeMusicas.length; i += 1) {
       NovoArray.push(listaDeMusicas[i]);
     }
     this.setState({
@@ -66,7 +66,7 @@ class MusicCard extends React.Component {
   async recuperaMusicasFavoritas() {
     const { listaDeMusicas } = this.props;
     const novoArraydeMusicas = [];
-    for (let i = 1; i < listaDeMusicas.length; i += 1) {
+    for (let i = 0; i < listaDeMusicas.length; i += 1) {
       novoArraydeMusicas.push(listaDeMusicas[i]);
     }
     const { checked } = this.state;
