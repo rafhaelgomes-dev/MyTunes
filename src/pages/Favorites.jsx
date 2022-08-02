@@ -16,10 +16,6 @@ class Favorites extends React.Component {
     this.recoverFavoriteSongs();
   }
 
-  componentWillUnmount() {
-    this.recoverFavoriteSongs();
-  }
-
   async recoverFavoriteSongs() {
     const favoriteSongs = await getFavoriteSongs();
     this.setState({

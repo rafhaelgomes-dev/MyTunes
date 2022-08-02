@@ -14,10 +14,6 @@ class Profile extends React.Component {
     this.recuperaUsuario();
   }
 
-  componentWillUnmount() {
-    this.recuperaUsuario();
-  }
-
   async recuperaUsuario() {
     const user = await getUser();
     this.setState({
