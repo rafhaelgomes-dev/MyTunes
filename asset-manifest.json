@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MyTunes/static/css/main.728fff24.css",
+    "main.js": "/MyTunes/static/js/main.19fc2c21.js",
+    "index.html": "/MyTunes/index.html",
+    "main.728fff24.css.map": "/MyTunes/static/css/main.728fff24.css.map",
+    "main.19fc2c21.js.map": "/MyTunes/static/js/main.19fc2c21.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.728fff24.css",
+    "static/js/main.19fc2c21.js"
+  ]
+}
